@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RokiTOS - Modern Custom Linux Distribution</title>
+    
+    <!-- Tylko favicon w pasku karty/wyszukiwarki -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M45 55C65 55 82 40 88 22C78 35 62 43 45 43C32 43 19 38 10 29C15 44 28 55 45 55Z' fill='%23ff7900'/><path d='M25 12C38 8 55 9 68 18C58 11 41 8 25 12Z' fill='%2388c0d0'/><path d='M18 18C18 14 21 11 25 11H57C70 11 77 19 77 28C77 37 70 45 57 45H36V54C36 58 32 61 28 61C24 61 20 58 20 54V18H18Z' fill='%232e3440'/><path d='M36 21H55C61 21 65 24 65 28C65 32 61 35 55 35H36V21Z' fill='%2312141a'/><path d='M78 18C83 23 88 29 91 36C87 31 82 25 78 18Z' fill='%23ff7900'/><path d='M35 54C40 56 46 57 52 57C46 57 40 56 35 54Z' fill='%23ff7900'/></svg>">
+
     <style>
         :root {
             --bg-color: #12141a;
@@ -75,10 +79,11 @@
             border: 1px solid rgba(235, 203, 139, 0.3);
         }
 
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 15px;
+        .hero-section h1 {
+            font-size: 3rem;
+            margin: 0 0 15px 0;
+            color: #ffffff;
+            letter-spacing: -0.5px;
         }
 
         .subtitle {
@@ -267,24 +272,8 @@
         <div class="container">
             <span class="badge">Work In Progress</span>
             
-            <!-- Nowe, wektorowe logo SVG w miejscu nagłówka -->
-            <div class="logo-container">
-                <svg viewBox="0 0 320 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 280px; height: auto;">
-                    <!-- Dolny/prawy dynamiczny łuk pomarańczowy -->
-                    <path d="M45 55C65 55 82 40 88 22C78 35 62 43 45 43C32 43 19 38 10 29C15 44 28 55 45 55Z" fill="#ff7900"/>
-                    <!-- Górny/lewy obrys szary -->
-                    <path d="M25 12C38 8 55 9 68 18C58 11 41 8 25 12Z" fill="#88c0d0"/>
-                    <!-- Główny element - litera R w tle -->
-                    <path d="M18 18C18 14 21 11 25 11H57C70 11 77 19 77 28C77 37 70 45 57 45H36V54C36 58 32 61 28 61C24 61 20 58 20 54V18H18Z" fill="#2e3440"/>
-                    <!-- Wycięcie w literze R (wewnętrzny kontur) -->
-                    <path d="M36 21H55C61 21 65 24 65 28C65 32 61 35 55 35H36V21Z" fill="#12141a"/>
-                    <!-- Ogonki / akcenty prędkości -->
-                    <path d="M78 18C83 23 88 29 91 36C87 31 82 25 78 18Z" fill="#ff7900"/>
-                    <path d="M35 54C40 56 46 57 52 57C46 57 40 56 35 54Z" fill="#ff7900"/>
-                    <!-- Tekst logo -->
-                    <text x="115" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="700" fill="#d8dee9" letter-spacing="-0.5">Roki<tspan fill="#ff7900">TOS</tspan></text>
-                </svg>
-            </div>
+            <!-- Sam nagłówek tekstowy, bez ikony na stronie -->
+            <h1>RokiTOS Linux</h1>
 
             <p class="subtitle">A lightweight, lightning-fast, and custom-tailored Debian-based distribution crafted for engineering, homelabs, and advanced networking.</p>
             <div class="cta-buttons">
