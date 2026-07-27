@@ -9,6 +9,7 @@
             --bg-color: #12141a;
             --card-bg: #1a1d26;
             --accent-color: #88c0d0;
+            --accent-blue: #3b82f6;
             --text-color: #d8dee9;
             --text-muted: #959da5;
             --border-color: #2e3440;
@@ -16,7 +17,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Płynne przewijanie zamiast chamskiego skoku */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -127,12 +128,12 @@
             background-color: #2e3440;
             color: #4c566a;
             border: 1px solid #3b4252;
-            cursor: not-allowed; /* Czerwony kursor zakazu */
-            pointer-events: none; /* Całkowita blokada kliknięć */
+            cursor: not-allowed;
+            pointer-events: none;
         }
 
         .main-content {
-            padding: 60px 20px;
+            padding: 60px 20px 20px 20px;
         }
 
         .section {
@@ -212,23 +213,33 @@
             color: var(--text-muted);
         }
 
-        .support-list {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-        }
-
-        .support-list li {
-            margin-bottom: 10px;
-        }
-
-        .support-list a {
-            color: var(--accent-color);
+        /* Style dla zintegrowanych przycisków wsparcia */
+        .support-btn {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            font-weight: 700;
             text-decoration: none;
+            font-size: 0.85rem;
+            transition: opacity 0.2s ease;
         }
 
-        .support-list a:hover {
-            text-decoration: underline;
+        .support-btn:hover {
+            opacity: 0.85;
+        }
+
+        .do-badge {
+            display: block;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .do-badge img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
         }
     </style>
 </head>
@@ -305,7 +316,3 @@
         <section id="download" class="section download-box">
             <h2>System Status</h2>
             <div class="download-info">
-                <p><strong>Architecture:</strong> x86_64</p>
-                <p><strong>Base:</strong> Debian Stable (Bookworm)</p>
-                <p><strong>Desktop Environment:</strong> XFCE4 (Custom Nordic UI)</p>
-            </div>
