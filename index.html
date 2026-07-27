@@ -102,13 +102,21 @@
             border-radius: 6px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             cursor: pointer;
+            outline: none;
+        }
+
+        /* Efekt podświetlenia prostokąta (focus / aktywacja) */
+        .btn:focus, .btn:active {
+            box-shadow: 0 0 0 3px rgba(136, 192, 208, 0.4), 0 0 15px rgba(136, 192, 208, 0.2);
+            border-color: var(--accent-color);
         }
 
         .btn-primary {
             background-color: var(--accent-blue);
             color: #ffffff;
+            border: 1px solid transparent;
         }
 
         .btn-primary:hover {
@@ -123,14 +131,7 @@
 
         .btn-secondary:hover {
             background-color: rgba(255, 255, 255, 0.05);
-        }
-
-        .btn-disabled {
-            background-color: #2e3440;
-            color: #4c566a;
-            border: 1px solid #3b4252;
-            cursor: not-allowed;
-            pointer-events: none;
+            border-color: var(--text-muted);
         }
 
         .main-content {
@@ -193,18 +194,68 @@
             text-align: center;
         }
 
-        .download-info {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            border-radius: 6px;
-            margin: 20px 0;
-            display: inline-block;
-            text-align: left;
+        /* Nowy, lepszy styl przycisków Marketplace */
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 15px 0 25px 0;
         }
 
-        .download-info p {
-            margin: 5px 0;
-            color: var(--text-muted);
+        .market-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid var(--border-color);
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--text-color);
+        }
+
+        .market-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .market-btn.vinted {
+            border-color: rgba(0, 191, 178, 0.3);
+        }
+        .market-btn.vinted:hover {
+            background: rgba(0, 191, 178, 0.1);
+            color: #00bfb2;
+        }
+
+        .market-btn.olx {
+            border-color: rgba(0, 47, 52, 0.6);
+        }
+        .market-btn.olx:hover {
+            background: rgba(35, 229, 219, 0.1);
+            color: #23e5db;
+        }
+
+        .market-btn.allegro {
+            border-color: rgba(255, 90, 0, 0.3);
+        }
+        .market-btn.allegro:hover {
+            background: rgba(255, 90, 0, 0.1);
+            color: #ff5a00;
+        }
+
+        .download-info {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            display: block;
+            text-align: left;
+            border: 1px solid var(--border-color);
         }
 
         .support-btn {
@@ -248,7 +299,7 @@
             <h1>RokiTOS Linux</h1>
             <p class="subtitle">A lightweight, lightning-fast, and custom-tailored Debian-based distribution crafted for engineering, homelabs, and advanced networking.</p>
             <div class="cta-buttons">
-                <span class="btn btn-disabled">Learn More</span>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
                 <a href="#features" class="btn btn-secondary">Explore Features</a>
                 <a href="http://rokitos.devlabstudy.ovh/support" target="_blank" class="btn btn-primary">Support RokiTOS</a>
             </div>
@@ -310,10 +361,12 @@
         <section id="download" class="section download-box">
             <h2>System Status</h2>
             <div class="download-info">
-                <h3 style="font-size: 0.8rem; color: #00bfb2; margin: 0 0 10px 0; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;">Marketplace:</h3>
-                <a href="https://www.vinted.pl/member/306118036" target="_blank" class="support-btn" style="background: #00bfb2; color: #fff;">VINTED</a>
-                <a href="#" target="_blank" class="support-btn" style="background: #002f34; border: 1px solid #23e5db; color: #fff;">OLX</a>
-                <a href="https://allegrolokalnie.pl/uzytkownik/Client:137881965" target="_blank" class="support-btn" style="background: #ff5a00; color: #fff;">ALLEGRO LOKALNIE</a>
+                <h3 style="font-size: 0.8rem; color: var(--accent-color); margin: 0 0 12px 0; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;">Marketplace:</h3>
+                <div class="market-grid">
+                    <a href="https://www.vinted.pl/member/306118036" target="_blank" class="market-btn vinted">VINTED</a>
+                    <a href="#" target="_blank" class="market-btn olx">OLX</a>
+                    <a href="https://allegrolokalnie.pl/uzytkownik/Client:137881965" target="_blank" class="market-btn allegro">ALLEGRO LOKALNIE</a>
+                </div>
             </div>
 
             <div class="card" style="border-color: var(--accent-blue); background: rgba(59, 130, 246, 0.05); margin-top: 20px;">
