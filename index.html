@@ -107,16 +107,6 @@
             outline: none;
         }
 
-        .btn-primary {
-            background-color: var(--accent-blue);
-            color: #ffffff;
-            border: 1px solid transparent;
-        }
-
-        .btn-primary:hover {
-            opacity: 0.85;
-        }
-
         .btn-secondary {
             background-color: transparent;
             color: var(--text-color);
@@ -140,7 +130,7 @@
             transition: all 0.4s ease;
         }
 
-        /* Żółte podświetlenie wyzwalane przez JS na 5 sekund */
+        /* Żółte podświetlenie tylko po wywołaniu przez kotwicę, gasnące po 5 sekundach */
         .section.highlight-yellow {
             border-color: var(--warning-color);
             background-color: rgba(235, 203, 139, 0.04);
@@ -155,17 +145,32 @@
             padding-bottom: 10px;
         }
 
-        /* Styl dla klikalnych linków wewnątrz tekstu */
-        .inline-link {
-            color: var(--accent-color);
-            text-decoration: none;
-            border-bottom: 1px dashed var(--accent-color);
-            transition: color 0.2s, border-color 0.2s;
+        .content-nav-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
         }
 
-        .inline-link:hover {
+        .inline-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(136, 192, 208, 0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(136, 192, 208, 0.25);
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .inline-action-btn:hover {
+            background: rgba(136, 192, 208, 0.2);
             color: #ffffff;
-            border-color: #ffffff;
+            border-color: var(--accent-color);
         }
 
         .tech-specs {
@@ -219,7 +224,8 @@
             margin: 15px 0 25px 0;
         }
 
-        .market-btn {
+        /* Ujednolicone tło dla wszystkich przycisków / kafelków dolnych */
+        .market-btn, .support-btn {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -231,24 +237,17 @@
             text-decoration: none;
             transition: all 0.2s ease;
             border: 1px solid var(--border-color);
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(26, 29, 38, 0.8);
             color: var(--text-color);
         }
 
-        .market-btn:hover {
+        .market-btn:hover, .support-btn:hover {
             transform: translateY(-2px);
             border-color: var(--accent-color);
+            background: rgba(136, 192, 208, 0.08);
+            color: var(--accent-color);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
-
-        .market-btn.vinted { border-color: rgba(0, 191, 178, 0.3); }
-        .market-btn.vinted:hover { background: rgba(0, 191, 178, 0.1); color: #00bfb2; }
-
-        .market-btn.olx { border-color: rgba(0, 47, 52, 0.6); }
-        .market-btn.olx:hover { background: rgba(35, 229, 219, 0.1); color: #23e5db; }
-
-        .market-btn.allegro { border-color: rgba(255, 90, 0, 0.3); }
-        .market-btn.allegro:hover { background: rgba(255, 90, 0, 0.1); color: #ff5a00; }
 
         .download-info {
             background: rgba(0, 0, 0, 0.2);
@@ -259,29 +258,12 @@
             text-align: left;
             border: 1px solid var(--border-color);
         }
-
-        .support-btn {
-            display: block;
-            text-align: center;
-            padding: 12px;
-            margin-bottom: 12px;
-            border-radius: 6px;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
-        }
-
-        .support-btn:hover {
-            opacity: 0.85;
-            transform: translateY(-1px);
-        }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
-        <a href="https://devlabstudy.ovh" class="back-link">&larr; Back to DevLabStudy</a>
+        <a href="https://devlabstudy.ovh" class="back-link">&larr; Back to DevLabStudy Portal</a>
     </div>
 
     <div class="hero-section">
@@ -301,8 +283,13 @@
         <!-- ABOUT SYSTEM -->
         <section id="about" class="section">
             <h2>About RokiTOS</h2>
-            <p>RokiTOS is an independent, custom-built Linux distribution born out of the need for a clean, highly responsive, and unbloated environment. Powered by a robust Debian Stable base, it integrates a modern Nordic aesthetic, finely tuned performance parameters, and all essential tools right out of the box. You can read more technical updates on the main <a href="https://devlabstudy.ovh" class="inline-link">devlabstudy.ovh</a> portal or check out recent logs in the <a href="https://devlabstudy.ovh/blog.html" class="inline-link">DevLab Blog</a>.</p>
+            <p>RokiTOS is an independent, custom-built Linux distribution born out of the need for a clean, highly responsive, and unbloated environment. Powered by a robust Debian Stable base, it integrates a modern Nordic aesthetic, finely tuned performance parameters, and all essential tools right out of the box.</p>
             
+            <div class="content-nav-links">
+                <a href="https://devlabstudy.ovh" class="inline-action-btn"> DevLab</a>
+                <a href="https://devlabstudy.ovh/blog.html" class="inline-action-btn"> Blog</a>
+            </div>
+
             <div class="tech-specs">
                 <p><strong>System Architecture & Development Paradigm:</strong></p>
                 <ul>
@@ -317,7 +304,12 @@
         <!-- KEY FEATURES -->
         <section id="features" class="section">
             <h2>Key Features</h2>
-            <p>Discover how the OS handles performance benchmarks and resource allocation by visiting the dedicated <a href="https://devlabstudy.ovh/benchmarks.html" class="inline-link">Benchmarks Hub</a>.</p>
+            <p>Check out detailed performance tests and metrics associated with the platform builds.</p>
+            
+            <div class="content-nav-links">
+                <a href="https://devlabstudy.ovh/benchmarks.html" class="inline-action-btn"> Benchmarks</a>
+            </div>
+
             <div class="grid">
                 <div class="card">
                     <h3>Lightweight & Fast</h3>
@@ -337,7 +329,12 @@
         <!-- ABOUT CREATOR -->
         <section id="creator" class="section">
             <h2>About the Creator</h2>
-            <p>Hi! I'm Tobiasz, a technical school IT student focused on server administration, system architecture, and custom distro development. More details about my background and ongoing projects can be found on <a href="https://devlabstudy.ovh" class="inline-link">devlabstudy.ovh</a>.</p>
+            <p>Hi! I'm Tobiasz, a technical school IT student focused on server administration, system architecture, and custom distro development.</p>
+            
+            <div class="content-nav-links">
+                <a href="https://devlabstudy.ovh" class="inline-action-btn"> Profile</a>
+            </div>
+
             <div class="grid">
                 <div class="card">
                     <h3>Homelab Enthusiast</h3>
@@ -345,7 +342,7 @@
                 </div>
                 <div class="card">
                     <h3>Content Creation</h3>
-                    <p>Documenting hardware projects, network configurations, and software deployments. Check out technical notes on the <a href="https://devlabstudy.ovh/blog.html" class="inline-link">Blog section</a>.</p>
+                    <p>Documenting hardware projects, network configurations, and software deployments through notes and video logs.</p>
                 </div>
             </div>
         </section>
@@ -353,7 +350,12 @@
         <!-- HARDWARE & LAB SETUP -->
         <section id="hardware" class="section">
             <h2>My Workspace & Hardware Stack</h2>
-            <p>To compile and test custom distributions, a reliable infrastructure is necessary. Explore the full infrastructure layout directly at <a href="https://devlabstudy.ovh/homelab.html" class="inline-link">devlabstudy.ovh/homelab.html</a>.</p>
+            <p>To compile and test custom distributions, a reliable infrastructure and precise environment layout are required.</p>
+            
+            <div class="content-nav-links">
+                <a href="https://devlabstudy.ovh/homelab.html" class="inline-action-btn">🖥️ Homelab</a>
+            </div>
+
             <div class="grid">
                 <div class="card">
                     <h3>Virtualization & Nodes</h3>
@@ -375,15 +377,15 @@
             <h2>Development Roadmap & Future Plans</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>Stage 1: Core System ✅</h3>
+                    <h3>Stage 1: Core System </h3>
                     <p>Bootstrap optimization, structural configuration of hybrid EFI/BIOS boot loaders, base package injection.</p>
                 </div>
                 <div class="card">
-                    <h3>Stage 2: Custom Installer ⏳</h3>
+                    <h3>Stage 2: Custom Installer </h3>
                     <p>Implementation of an automated deployment engine for direct hardware installations without pre-live overheads.</p>
                 </div>
                 <div class="card">
-                    <h3>Stage 3: Repository Setup 🚀</h3>
+                    <h3>Stage 3: Repository Setup </h3>
                     <p>Launching dedicated package mirrors ensuring rolling security updates and customized application delivery.</p>
                 </div>
             </div>
@@ -396,24 +398,26 @@
             <div class="download-info">
                 <h3 style="font-size: 0.8rem; color: var(--accent-color); margin: 0 0 12px 0; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;">Marketplace:</h3>
                 <div class="market-grid">
-                    <a href="https://www.vinted.pl/member/306118036" target="_blank" class="market-btn vinted">VINTED</a>
-                    <a href="#" target="_blank" class="market-btn olx">OLX</a>
-                    <a href="https://allegrolokalnie.pl/uzytkownik/Client:137881965" target="_blank" class="market-btn allegro">ALLEGRO LOKALNIE</a>
+                    <a href="https://www.vinted.pl/member/306118036" target="_blank" class="market-btn">Vinted</a>
+                    <a href="#" target="_blank" class="market-btn">OLX</a>
+                    <a href="https://allegrolokalnie.pl/uzytkownik/Client:137881965" target="_blank" class="market-btn">Allegro Lokalnie</a>
                 </div>
             </div>
 
-            <div class="card" style="border-color: var(--accent-blue); background: rgba(59, 130, 246, 0.05); margin-top: 20px;">
-                <h3 style="font-size: 0.8rem; color: var(--accent-blue); margin: 0 0 10px 0; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;">Support & Partners:</h3>
-                <a href="https://patreon.com/DevLabStudy" target="_blank" class="support-btn" style="background: #e11d48; color: #fff;">PATREON</a>
-                <a href="https://www.digitalocean.com/?refcode=6fd6e2226432" target="_blank" class="support-btn" style="background: #0080ff; color: #fff; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                    <span>☁️ DIGITALOCEAN CLOUD PARTNER</span>
-                </a>
-                <a href="https://www.buymeacoffee.com/DevLabStudy" target="_blank" class="support-btn" style="background: #FFDD00; color: #000;">BUY ME A COFFEE</a>
+            <div class="download-info">
+                <h3 style="font-size: 0.8rem; color: var(--accent-blue); margin: 0 0 12px 0; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;">Support & Partners:</h3>
+                <div class="market-grid">
+                    <a href="https://patreon.com/DevLabStudy" target="_blank" class="support-btn">Patreon</a>
+                    <a href="https://www.digitalocean.com/?refcode=6fd6e2226432" target="_blank" class="support-btn">DigitalOcean</a>
+                    <a href="https://www.buymeacoffee.com/DevLabStudy" target="_blank" class="support-btn">Buy Me a Coffee</a>
+                </div>
             </div>
 
-            <div class="card" style="border-color: #8b5cf6; background: rgba(139, 92, 246, 0.05); margin-top: 20px;">
-                <h3 style="font-size: 0.8rem; color: #8b5cf6; margin: 0 0 10px 0; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;">DevLog:</h3>
-                <a href="/updates" class="support-btn" style="background: #8b5cf6; color: #fff;">VIEW UPDATES</a>
+            <div class="download-info">
+                <h3 style="font-size: 0.8rem; color: #8b5cf6; margin: 0 0 12px 0; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;">DevLog:</h3>
+                <div class="market-grid">
+                    <a href="/updates" class="support-btn">Website Updates</a>
+                </div>
             </div>
         </section>
     </div>
@@ -438,20 +442,16 @@
         </div>
     </footer>
 
-    <!-- Skrypt obsługujący timer 5 sekund dla żółtego podświetlenia sekcji -->
+    <!-- Skrypt obsługujący timer 5 sekund – uruchamia się wyłącznie przy zmianie/kliknięciu kotwicy -->
     <script>
         function handleTargetHighlight() {
             const hash = window.location.hash;
             if (hash) {
                 const targetSection = document.querySelector(hash);
                 if (targetSection) {
-                    // Usuń podświetlenie ze wszystkich sekcji na start
                     document.querySelectorAll('.section').forEach(s => s.classList.remove('highlight-yellow'));
-                    
-                    // Dodaj podświetlenie do aktualnej sekcji
                     targetSection.classList.add('highlight-yellow');
                     
-                    // Timer na dokładnie 5 sekund (5000 ms)
                     setTimeout(() => {
                         targetSection.classList.remove('highlight-yellow');
                     }, 5000);
@@ -459,11 +459,7 @@
             }
         }
 
-        // Nasłuchuj kliknięć w linki kotwiczące oraz zmiany hasha
         window.addEventListener('hashchange', handleTargetHighlight);
-        
-        // Wywołaj też przy pierwszym załadowaniu, gdy ktoś wejdzie bezpośrednio z kotwicą w URL
-        window.addEventListener('DOMContentLoaded', handleTargetHighlight);
     </script>
 </body>
 </html>
