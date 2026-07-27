@@ -15,6 +15,10 @@
             --warning-color: #ebcb8b;
         }
 
+        html {
+            scroll-behavior: smooth; /* Płynne przewijanie zamiast chamskiego skoku */
+        }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
@@ -119,6 +123,14 @@
             background-color: rgba(255, 255, 255, 0.05);
         }
 
+        .btn-disabled {
+            background-color: #2e3440;
+            color: #4c566a;
+            border: 1px solid #3b4252;
+            cursor: not-allowed; /* Czerwony kursor zakazu */
+            pointer-events: none; /* Całkowita blokada kliknięć */
+        }
+
         .main-content {
             padding: 60px 20px;
         }
@@ -133,6 +145,23 @@
             color: #ffffff;
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 10px;
+        }
+
+        .tech-specs {
+            background-color: rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .tech-specs ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .tech-specs li {
+            margin-bottom: 8px;
         }
 
         .grid {
@@ -166,7 +195,7 @@
             color: var(--warning-color);
             font-weight: 600;
             font-size: 1.1rem;
-            margin-top: 15px;
+            margin: 20px 0;
         }
 
         .download-info {
@@ -224,7 +253,17 @@
     <div class="container main-content">
         <section id="about" class="section">
             <h2>About RokiTOS</h2>
-            <p>RokiTOS is an independent, custom-built Linux distribution born out of the need for a clean, highly responsive, and unbloated environment. Powered by a robust Debian base, it integrates a modern Nordic aesthetic, finely tuned performance parameters, and all essential tools right out of the box.</p>
+            <p>RokiTOS is an independent, custom-built Linux distribution born out of the need for a clean, highly responsive, and unbloated environment. Powered by a robust Debian Stable base, it integrates a modern Nordic aesthetic, finely tuned performance parameters, and all essential tools right out of the box.</p>
+            
+            <div class="tech-specs">
+                <p><strong>System Architecture & Development Paradigm:</strong></p>
+                <ul>
+                    <li>Built completely from bare-metal scratch using targeted <code>debootstrap</code> environments.</li>
+                    <li>Stripped down initialization: Modified systemd targets optimizing structural unit-loading times.</li>
+                    <li>Highly optimized live-boot compression framework using high-ratio <code>SquashFS</code> execution directly in RAM.</li>
+                    <li>Integrated customized kernel configs ensuring seamless hardware passthrough under Proxmox VE KVM instances.</li>
+                </ul>
+            </div>
         </section>
 
         <section id="features" class="section">
@@ -236,11 +275,29 @@
                 </div>
                 <div class="card">
                     <h3>Nordic Visual Theme</h3>
-                    <p>Pre-configured with a carefully selected dark theme, custom icon packs, and striking wallpapers for a seamless workflow.</p>
+                    <p>Pre-configured with a carefully selected dark theme, custom vector-based Papirus icon packs, and dynamic wallpaper shufflers.</p>
                 </div>
                 <div class="card">
                     <h3>Homelab Ready</h3>
-                    <p>Equipped with modern networking utilities and robust system tools tailored for server administration and development.</p>
+                    <p>Equipped with modern networking utilities, micro-containerization environments, and core tools tailored for server administration.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="section">
+            <h2>Development Roadmap</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Stage 1: Core System ✅</h3>
+                    <p>Bootstrap optimization, structural configuration of hybrid EFI/BIOS boot loaders, base package injection.</p>
+                </div>
+                <div class="card">
+                    <h3>Stage 2: Custom Installer ⏳</h3>
+                    <p>Implementation of an automated deployment engine for direct hardware installations without pre-live overheads.</p>
+                </div>
+                <div class="card">
+                    <h3>Stage 3: Repository Setup 🚀</h3>
+                    <p>Launching dedicated package mirrors ensuring rolling security updates and customized application delivery.</p>
                 </div>
             </div>
         </section>
@@ -249,21 +306,6 @@
             <h2>System Status</h2>
             <div class="download-info">
                 <p><strong>Architecture:</strong> x86_64</p>
-                <p><strong>Base:</strong> Debian Stable</p>
-                <p><strong>Desktop Environment:</strong> XFCE (Custom Nordic)</p>
+                <p><strong>Base:</strong> Debian Stable (Bookworm)</p>
+                <p><strong>Desktop Environment:</strong> XFCE4 (Custom Nordic UI)</p>
             </div>
-            <p class="wip-text"> Development Version: Internal building and testing in progress.</p>
-        </section>
-
-        <section id="support" class="section">
-            <h2>Support & Contact</h2>
-            <p>Encountered an issue or need assistance with RokiTOS? Reach out to our teams through the appropriate channel:</p>
-            <ul class="support-list">
-                <li><strong>General Support:</strong> <a href="mailto:support@rokitos.devlabstudy.ovh">support@rokitos.devlabstudy.ovh</a></li>
-                <li><strong>Bug Reports & Issues:</strong> <a href="mailto:bugs@rokitos.devlabstudy.ovh">bugs@rokitos.devlabstudy.ovh</a></li>
-            </ul>
-            <a href="https://devlabstudy.ovh" class="btn btn-primary">Support the Project</a>
-        </section>
-    </div>
-</body>
-</html>
