@@ -140,11 +140,11 @@
             transition: all 0.4s ease;
         }
 
-        /* Efekt podświetlenia sekcji po kliknięciu z góry (Target Highlight) */
-        .section:target {
-            border-color: #a3be8c;
-            background-color: rgba(163, 190, 140, 0.03);
-            box-shadow: 0 0 25px rgba(163, 190, 140, 0.15);
+        /* Żółte podświetlenie wyzwalane przez JS na 5 sekund */
+        .section.highlight-yellow {
+            border-color: var(--warning-color);
+            background-color: rgba(235, 203, 139, 0.04);
+            box-shadow: 0 0 25px rgba(235, 203, 139, 0.2);
         }
 
         .section h2 {
@@ -153,6 +153,19 @@
             color: #ffffff;
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 10px;
+        }
+
+        /* Styl dla klikalnych linków wewnątrz tekstu */
+        .inline-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent-color);
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .inline-link:hover {
+            color: #ffffff;
+            border-color: #ffffff;
         }
 
         .tech-specs {
@@ -279,9 +292,6 @@
             <div class="cta-buttons">
                 <a href="#about" class="btn btn-secondary">Learn More</a>
                 <a href="#features" class="btn btn-secondary">Explore Features</a>
-                <a href="#creator" class="btn btn-secondary">About Creator</a>
-                <a href="#hardware" class="btn btn-secondary">My Hardware</a>
-                <a href="http://rokitos.devlabstudy.ovh/support" target="_blank" class="btn btn-primary">Support RokiTOS</a>
             </div>
         </div>
     </div>
@@ -291,7 +301,7 @@
         <!-- ABOUT SYSTEM -->
         <section id="about" class="section">
             <h2>About RokiTOS</h2>
-            <p>RokiTOS is an independent, custom-built Linux distribution born out of the need for a clean, highly responsive, and unbloated environment. Powered by a robust Debian Stable base, it integrates a modern Nordic aesthetic, finely tuned performance parameters, and all essential tools right out of the box.</p>
+            <p>RokiTOS is an independent, custom-built Linux distribution born out of the need for a clean, highly responsive, and unbloated environment. Powered by a robust Debian Stable base, it integrates a modern Nordic aesthetic, finely tuned performance parameters, and all essential tools right out of the box. You can read more technical updates on the main <a href="https://devlabstudy.ovh" class="inline-link">devlabstudy.ovh</a> portal or check out recent logs in the <a href="https://devlabstudy.ovh/blog.html" class="inline-link">DevLab Blog</a>.</p>
             
             <div class="tech-specs">
                 <p><strong>System Architecture & Development Paradigm:</strong></p>
@@ -307,6 +317,7 @@
         <!-- KEY FEATURES -->
         <section id="features" class="section">
             <h2>Key Features</h2>
+            <p>Discover how the OS handles performance benchmarks and resource allocation by visiting the dedicated <a href="https://devlabstudy.ovh/benchmarks.html" class="inline-link">Benchmarks Hub</a>.</p>
             <div class="grid">
                 <div class="card">
                     <h3>Lightweight & Fast</h3>
@@ -323,10 +334,10 @@
             </div>
         </section>
 
-        <!-- ABOUT CREATOR (NEW) -->
+        <!-- ABOUT CREATOR -->
         <section id="creator" class="section">
             <h2>About the Creator</h2>
-            <p>Hi! I'm Tobiasz, a passionate IT technical school student deeply immersed in server administration, networking, and custom operating system design. RokiTOS is my flagship project combining hands-on engineering with everyday utility.</p>
+            <p>Hi! I'm Tobiasz, a technical school IT student focused on server administration, system architecture, and custom distro development. More details about my background and ongoing projects can be found on <a href="https://devlabstudy.ovh" class="inline-link">devlabstudy.ovh</a>.</p>
             <div class="grid">
                 <div class="card">
                     <h3>Homelab Enthusiast</h3>
@@ -334,15 +345,15 @@
                 </div>
                 <div class="card">
                     <h3>Content Creation</h3>
-                    <p>Documenting hardware projects, network configurations, and software deployments through dedicated video logs and tech write-ups.</p>
+                    <p>Documenting hardware projects, network configurations, and software deployments. Check out technical notes on the <a href="https://devlabstudy.ovh/blog.html" class="inline-link">Blog section</a>.</p>
                 </div>
             </div>
         </section>
 
-        <!-- HARDWARE & LAB SETUP (NEW) -->
+        <!-- HARDWARE & LAB SETUP -->
         <section id="hardware" class="section">
             <h2>My Workspace & Hardware Stack</h2>
-            <p>To build, test, and compile systems like RokiTOS, reliability and proper virtualization infrastructure are crucial.</p>
+            <p>To compile and test custom distributions, a reliable infrastructure is necessary. Explore the full infrastructure layout directly at <a href="https://devlabstudy.ovh/homelab.html" class="inline-link">devlabstudy.ovh/homelab.html</a>.</p>
             <div class="grid">
                 <div class="card">
                     <h3>Virtualization & Nodes</h3>
@@ -394,7 +405,6 @@
             <div class="card" style="border-color: var(--accent-blue); background: rgba(59, 130, 246, 0.05); margin-top: 20px;">
                 <h3 style="font-size: 0.8rem; color: var(--accent-blue); margin: 0 0 10px 0; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;">Support & Partners:</h3>
                 <a href="https://patreon.com/DevLabStudy" target="_blank" class="support-btn" style="background: #e11d48; color: #fff;">PATREON</a>
-                <!-- Zastąpiono sztywny baner DigitalOcean czystym, elastycznym przyciskiem w stylu strony -->
                 <a href="https://www.digitalocean.com/?refcode=6fd6e2226432" target="_blank" class="support-btn" style="background: #0080ff; color: #fff; display: flex; align-items: center; justify-content: center; gap: 8px;">
                     <span>☁️ DIGITALOCEAN CLOUD PARTNER</span>
                 </a>
@@ -427,5 +437,33 @@
             </div>
         </div>
     </footer>
+
+    <!-- Skrypt obsługujący timer 5 sekund dla żółtego podświetlenia sekcji -->
+    <script>
+        function handleTargetHighlight() {
+            const hash = window.location.hash;
+            if (hash) {
+                const targetSection = document.querySelector(hash);
+                if (targetSection) {
+                    // Usuń podświetlenie ze wszystkich sekcji na start
+                    document.querySelectorAll('.section').forEach(s => s.classList.remove('highlight-yellow'));
+                    
+                    // Dodaj podświetlenie do aktualnej sekcji
+                    targetSection.classList.add('highlight-yellow');
+                    
+                    // Timer na dokładnie 5 sekund (5000 ms)
+                    setTimeout(() => {
+                        targetSection.classList.remove('highlight-yellow');
+                    }, 5000);
+                }
+            }
+        }
+
+        // Nasłuchuj kliknięć w linki kotwiczące oraz zmiany hasha
+        window.addEventListener('hashchange', handleTargetHighlight);
+        
+        // Wywołaj też przy pierwszym załadowaniu, gdy ktoś wejdzie bezpośrednio z kotwicą w URL
+        window.addEventListener('DOMContentLoaded', handleTargetHighlight);
+    </script>
 </body>
 </html>
