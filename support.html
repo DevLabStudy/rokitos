@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support & Bug Reports - RokiTOS</title>
+    <style>
+        :root {
+            --bg-color: #12141a;
+            --card-bg: #1a1d26;
+            --accent-color: #88c0d0;
+            --text-color: #d8dee9;
+            --text-muted: #959da5;
+            --border-color: #2e3440;
+            --input-bg: #0f1117;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .top-bar {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 20px 0 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px 80px 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-color);
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--accent-color);
+            color: #12141a;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #81a1c1;
+        }
+
+        .email-channels {
+            list-style: none;
+            padding: 0;
+        }
+
+        .email-channels li {
+            margin-bottom: 12px;
+        }
+
+        .email-channels a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .email-channels a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="https://rokitos.devlabstudy.ovh" class="back-link">&larr; Back to RokiTOS Home</a>
+    </div>
+
+    <div class="container">
+        <h1>Support & Bug Reporting</h1>
+        <p class="subtitle">Need help with RokiTOS or found something broken? Get in touch with us.</p>
+
+        <div class="card">
+            <h2>Direct Channels</h2>
+            <p>Prefer writing via email? Reach out directly to our dedicated teams:</p>
+            <ul class="email-channels">
+                <li><strong>General Support:</strong> <a href="mailto:support@rokitos.devlabstudy.ovh">support@rokitos.devlabstudy.ovh</a></li>
+                <li><strong>Bug Reports & Issues:</strong> <a href="mailto:bugs@rokitos.devlabstudy.ovh">bugs@rokitos.devlabstudy.ovh</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Quick Bug Report Form</h2>
+            <p>Submit an issue description directly. (Note: Forms use mailto redirection or can be integrated with backend handlers).</p>
+            <form action="mailto:bugs@rokitos.devlabstudy.ovh" method="POST" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Your Name / Handle</label>
+                    <input type="text" id="name" name="Name" required placeholder="e.g. LinuxUser">
+                </div>
+                <div class="form-group">
+                    <label for="version">RokiTOS Version</label>
+                    <input type="text" id="version" name="Version" value="v1.0 Stable" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Issue Description / Error Logs</label>
+                    <textarea id="message" name="Message" rows="5" required placeholder="Describe what went wrong or paste error output..."></textarea>
+                </div>
+                <button type="submit" class="btn">Send Bug Report</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
