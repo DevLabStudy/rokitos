@@ -107,12 +107,6 @@
             outline: none;
         }
 
-        /* Efekt podświetlenia prostokąta (focus / aktywacja) */
-        .btn:focus, .btn:active {
-            box-shadow: 0 0 0 3px rgba(136, 192, 208, 0.4), 0 0 15px rgba(136, 192, 208, 0.2);
-            border-color: var(--accent-color);
-        }
-
         .btn-primary {
             background-color: var(--accent-blue);
             color: #ffffff;
@@ -140,6 +134,17 @@
 
         .section {
             margin-bottom: 60px;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        /* Efekt podświetlenia sekcji po kliknięciu z góry (Target Highlight) */
+        .section:target {
+            border-color: #a3be8c;
+            background-color: rgba(163, 190, 140, 0.03);
+            box-shadow: 0 0 25px rgba(163, 190, 140, 0.15);
         }
 
         .section h2 {
@@ -194,7 +199,6 @@
             text-align: center;
         }
 
-        /* Nowy, lepszy styl przycisków Marketplace */
         .market-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -224,29 +228,14 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        .market-btn.vinted {
-            border-color: rgba(0, 191, 178, 0.3);
-        }
-        .market-btn.vinted:hover {
-            background: rgba(0, 191, 178, 0.1);
-            color: #00bfb2;
-        }
+        .market-btn.vinted { border-color: rgba(0, 191, 178, 0.3); }
+        .market-btn.vinted:hover { background: rgba(0, 191, 178, 0.1); color: #00bfb2; }
 
-        .market-btn.olx {
-            border-color: rgba(0, 47, 52, 0.6);
-        }
-        .market-btn.olx:hover {
-            background: rgba(35, 229, 219, 0.1);
-            color: #23e5db;
-        }
+        .market-btn.olx { border-color: rgba(0, 47, 52, 0.6); }
+        .market-btn.olx:hover { background: rgba(35, 229, 219, 0.1); color: #23e5db; }
 
-        .market-btn.allegro {
-            border-color: rgba(255, 90, 0, 0.3);
-        }
-        .market-btn.allegro:hover {
-            background: rgba(255, 90, 0, 0.1);
-            color: #ff5a00;
-        }
+        .market-btn.allegro { border-color: rgba(255, 90, 0, 0.3); }
+        .market-btn.allegro:hover { background: rgba(255, 90, 0, 0.1); color: #ff5a00; }
 
         .download-info {
             background: rgba(0, 0, 0, 0.2);
@@ -261,29 +250,18 @@
         .support-btn {
             display: block;
             text-align: center;
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 12px;
             border-radius: 6px;
             font-weight: 700;
             text-decoration: none;
             font-size: 0.85rem;
-            transition: opacity 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         .support-btn:hover {
             opacity: 0.85;
-        }
-
-        .do-badge {
-            display: block;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-
-        .do-badge img {
-            width: 100%;
-            max-width: 200px;
-            height: auto;
+            transform: translateY(-1px);
         }
     </style>
 </head>
@@ -301,12 +279,16 @@
             <div class="cta-buttons">
                 <a href="#about" class="btn btn-secondary">Learn More</a>
                 <a href="#features" class="btn btn-secondary">Explore Features</a>
+                <a href="#creator" class="btn btn-secondary">About Creator</a>
+                <a href="#hardware" class="btn btn-secondary">My Hardware</a>
                 <a href="http://rokitos.devlabstudy.ovh/support" target="_blank" class="btn btn-primary">Support RokiTOS</a>
             </div>
         </div>
     </div>
 
     <div class="container main-content">
+        
+        <!-- ABOUT SYSTEM -->
         <section id="about" class="section">
             <h2>About RokiTOS</h2>
             <p>RokiTOS is an independent, custom-built Linux distribution born out of the need for a clean, highly responsive, and unbloated environment. Powered by a robust Debian Stable base, it integrates a modern Nordic aesthetic, finely tuned performance parameters, and all essential tools right out of the box.</p>
@@ -322,6 +304,7 @@
             </div>
         </section>
 
+        <!-- KEY FEATURES -->
         <section id="features" class="section">
             <h2>Key Features</h2>
             <div class="grid">
@@ -340,8 +323,45 @@
             </div>
         </section>
 
+        <!-- ABOUT CREATOR (NEW) -->
+        <section id="creator" class="section">
+            <h2>About the Creator</h2>
+            <p>Hi! I'm Tobiasz, a passionate IT technical school student deeply immersed in server administration, networking, and custom operating system design. RokiTOS is my flagship project combining hands-on engineering with everyday utility.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Homelab Enthusiast</h3>
+                    <p>Running local virtualization clusters, managing containerized services via Docker/Portainer, and tuning automated network pipelines.</p>
+                </div>
+                <div class="card">
+                    <h3>Content Creation</h3>
+                    <p>Documenting hardware projects, network configurations, and software deployments through dedicated video logs and tech write-ups.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HARDWARE & LAB SETUP (NEW) -->
+        <section id="hardware" class="section">
+            <h2>My Workspace & Hardware Stack</h2>
+            <p>To build, test, and compile systems like RokiTOS, reliability and proper virtualization infrastructure are crucial.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Virtualization & Nodes</h3>
+                    <p>Powered by Proxmox VE environments utilizing compact hardware nodes (like Dell OptiPlex SFF units) for robust KVM testing and container management.</p>
+                </div>
+                <div class="card">
+                    <h3>Networking Equipment</h3>
+                    <p>Structured around MikroTik routers running RouterOS, managed switches, and custom OpenWrt access points ensuring strict segmentation and monitoring.</p>
+                </div>
+                <div class="card">
+                    <h3>Development & Testing</h3>
+                    <p>Using Linux Mint and Nobara environments on the desktop side, paired with precise control hardware for daily work and debugging.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROADMAP -->
         <section id="roadmap" class="section">
-            <h2>Development Roadmap</h2>
+            <h2>Development Roadmap & Future Plans</h2>
             <div class="grid">
                 <div class="card">
                     <h3>Stage 1: Core System ✅</h3>
@@ -358,8 +378,10 @@
             </div>
         </section>
 
+        <!-- STATUS & MARKETPLACE / SUPPORT -->
         <section id="download" class="section download-box">
-            <h2>System Status</h2>
+            <h2>System Status & Ecosystem</h2>
+            
             <div class="download-info">
                 <h3 style="font-size: 0.8rem; color: var(--accent-color); margin: 0 0 12px 0; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;">Marketplace:</h3>
                 <div class="market-grid">
@@ -370,9 +392,12 @@
             </div>
 
             <div class="card" style="border-color: var(--accent-blue); background: rgba(59, 130, 246, 0.05); margin-top: 20px;">
-                <h3 style="font-size: 0.8rem; color: var(--accent-blue); margin: 0 0 10px 0; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;">Support:</h3>
+                <h3 style="font-size: 0.8rem; color: var(--accent-blue); margin: 0 0 10px 0; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;">Support & Partners:</h3>
                 <a href="https://patreon.com/DevLabStudy" target="_blank" class="support-btn" style="background: #e11d48; color: #fff;">PATREON</a>
-                <a href="https://www.digitalocean.com/?refcode=6fd6e2226432" class="do-badge" target="_blank"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" /></a>
+                <!-- Zastąpiono sztywny baner DigitalOcean czystym, elastycznym przyciskiem w stylu strony -->
+                <a href="https://www.digitalocean.com/?refcode=6fd6e2226432" target="_blank" class="support-btn" style="background: #0080ff; color: #fff; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <span>☁️ DIGITALOCEAN CLOUD PARTNER</span>
+                </a>
                 <a href="https://www.buymeacoffee.com/DevLabStudy" target="_blank" class="support-btn" style="background: #FFDD00; color: #000;">BUY ME A COFFEE</a>
             </div>
 
