@@ -12,6 +12,7 @@
             --text-color: #d8dee9;
             --text-muted: #959da5;
             --border-color: #2e3440;
+            --warning-color: #ebcb8b;
         }
 
         body {
@@ -59,13 +60,14 @@
 
         .badge {
             display: inline-block;
-            background: rgba(136, 192, 208, 0.15);
-            color: var(--accent-color);
+            background: rgba(235, 203, 139, 0.15);
+            color: var(--warning-color);
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 20px;
+            border: 1px solid rgba(235, 203, 139, 0.3);
         }
 
         .hero-section h1 {
@@ -95,6 +97,7 @@
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s ease;
+            cursor: pointer;
         }
 
         .btn-primary {
@@ -159,6 +162,13 @@
             text-align: center;
         }
 
+        .wip-text {
+            color: var(--warning-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+
         .download-info {
             background: rgba(0, 0, 0, 0.2);
             padding: 15px;
@@ -176,6 +186,7 @@
         .support-list {
             list-style: none;
             padding: 0;
+            margin-bottom: 30px;
         }
 
         .support-list li {
@@ -200,11 +211,11 @@
 
     <div class="hero-section">
         <div class="container">
-            <span class="badge">Version 1.0 Stable</span>
+            <span class="badge">Work In Progress</span>
             <h1>RokiTOS Linux</h1>
             <p class="subtitle">A lightweight, lightning-fast, and custom-tailored Debian-based distribution crafted for engineering, homelabs, and advanced networking.</p>
             <div class="cta-buttons">
-                <a href="#download" class="btn btn-primary">Download ISO (v1.0)</a>
+                <a href="#about" class="btn btn-primary">Learn More</a>
                 <a href="#features" class="btn btn-secondary">Explore Features</a>
             </div>
         </div>
@@ -235,14 +246,13 @@
         </section>
 
         <section id="download" class="section download-box">
-            <h2>Download RokiTOS v1.0</h2>
-            <p>Get your hands on the stable release of RokiTOS and experience a fresh take on customized Linux systems.</p>
+            <h2>System Status</h2>
             <div class="download-info">
                 <p><strong>Architecture:</strong> x86_64</p>
                 <p><strong>Base:</strong> Debian Stable</p>
                 <p><strong>Desktop Environment:</strong> XFCE (Custom Nordic)</p>
             </div>
-            <a href="#" class="btn btn-primary disabled">Download ISO (Coming Soon)</a>
+            <p class="wip-text"> Development Version: Internal building and testing in progress.</p>
         </section>
 
         <section id="support" class="section">
@@ -252,8 +262,8 @@
                 <li><strong>General Support:</strong> <a href="mailto:support@rokitos.devlabstudy.ovh">support@rokitos.devlabstudy.ovh</a></li>
                 <li><strong>Bug Reports & Issues:</strong> <a href="mailto:bugs@rokitos.devlabstudy.ovh">bugs@rokitos.devlabstudy.ovh</a></li>
             </ul>
+            <a href="https://devlabstudy.ovh" class="btn btn-primary">Support the Project</a>
         </section>
     </div>
-
 </body>
 </html>
