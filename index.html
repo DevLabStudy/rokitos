@@ -8,6 +8,10 @@
     <!-- Nowa ikona SVG jako favicon w pasku karty -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='markIcon' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300D9FF'/%3E%3Cstop offset='100%25' stop-color='%237C6FF5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='32,4 56,17 56,45 32,60 8,45 8,17' fill='none' stroke='url(%23markIcon)' stroke-width='3.4' stroke-linejoin='round'/%3E%3Cpath d='M 20,42 L 32,14 L 44,42 L 32,32 Z' fill='url(%23markIcon)'/%3E%3Ccircle cx='32' cy='14' r='3.2' fill='%2300D9FF'/%3E%3C/svg%3E">
 
+    <!-- Cookie Consent CSS & JS z CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css">
+    <script defer src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js"></script>
+
     <style>
         :root {
             --bg-color: #12141a;
@@ -276,6 +280,20 @@
             text-align: left;
             border: 1px solid var(--border-color);
         }
+
+        /* Cookie Consent Nordic Theme Overrides */
+        #cc--main {
+            --cc-bg: #1a1d26;
+            --cc-text: #d8dee9;
+            --cc-btn-primary-bg: #88c0d0;
+            --cc-btn-primary-text: #12141a;
+            --cc-btn-primary-hover-bg: #00D9FF;
+            --cc-btn-secondary-bg: #2e3440;
+            --cc-btn-secondary-text: #d8dee9;
+            --cc-btn-secondary-hover-bg: #3b4252;
+            --cc-cookie-category-title-color: #88c0d0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+        }
     </style>
 </head>
 <body>
@@ -446,7 +464,7 @@
     <footer style="max-width: 1200px; margin: 60px auto 40px auto; padding: 0 40px;">
         <div class="card" style="border-style: dashed; text-align: center; padding: 40px; background: rgba(10, 10, 10, 0.5);">
             <h3 style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 25px; text-transform: uppercase;">[ Communication_Channels ]</h3>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-bottom: 30px;">
                 <div style="text-align: center;">
                     <div style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 5px;">BUSINESS / COLLABORATION</div>
                     <a href="mailto:contact@devlabstudy.ovh" style="color: #fff; font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--accent-blue);">contact@devlabstudy.ovh</a>
@@ -459,6 +477,13 @@
                     <div style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 5px;">BUG REPORTING / APPS</div>
                     <a href="mailto:bledy@devlabstudy.ovh" style="color: #fff; font-weight: 700; text-decoration: none; border-bottom: 2px solid #ef4444;">bledy@devlabstudy.ovh</a>
                 </div>
+            </div>
+
+            <!-- Legal Footer Links -->
+            <div style="font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 20px;">
+                © DevLabStudy | RokiTOS Project | 
+                <a href="https://devlabstudy.ovh/polityka-prywatnosci" style="color: var(--accent-color); text-decoration: none; margin: 0 5px;">Privacy Policy</a> | 
+                <a href="#" data-cc="c-settings" style="color: var(--accent-color); text-decoration: none; margin: 0 5px;">Cookie Settings</a>
             </div>
         </div>
     </footer>
@@ -480,6 +505,43 @@
         }
 
         window.addEventListener('hashchange', handleTargetHighlight);
+
+        /* CookieConsent Initialization */
+        window.addEventListener('load', function () {
+            var cc = initCookieConsent();
+
+            cc.run({
+                current_lang: 'pl',
+                autoclear_cookies: true,
+                page_scripts: true,
+
+                gui_options: {
+                    consent_modal: {
+                        layout: 'cloud',
+                        position: 'bottom center',
+                        transition: 'slide',
+                        swap_buttons: false
+                    }
+                },
+
+                languages: {
+                    'pl': {
+                        consent_modal: {
+                            title: 'Strona używa plików cookie 🍪',
+                            description: 'Używamy plików cookie w celu prawidłowego działania witryny oraz multimediów. Więcej dowiesz się w naszej <a href="https://devlabstudy.ovh/polityka-prywatnosci">Polityce Prywatności</a>.',
+                            primary_btn: {
+                                text: 'Akceptuję',
+                                role: 'accept_all'
+                            },
+                            secondary_btn: {
+                                text: 'Tylko niezbędne',
+                                role: 'accept_necessary'
+                            }
+                        }
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
